@@ -236,9 +236,9 @@
 }
 
 .monthViewHeight{
-    height: -webkit-calc(100% - 3em) !important;
-    height: -moz-calc(100% - 3em) !important;
-    height: calc(100% - 3em) !important;
+    height: -webkit-calc(100% - 3em - 30px) !important;
+    height: -moz-calc(100% - 3em - 30px) !important;
+    height: calc(100% - 3em - 30px) !important;
 }
 
 .monthViewHeight .monthview-datetable{

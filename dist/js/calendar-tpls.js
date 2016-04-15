@@ -1147,7 +1147,8 @@ angular.module("template/rcalendar/month.html", []).run(["$templateCache", funct
             "    <div ng-if=\"showEventDetail\" class=\"event-detail-container\">\n" +
                 /*modify xm*/
                 /*"        <div class=\"scrollable\" style=\"height: 170px\">\n" +*/
-            "          <div class=\"scrollable\" ng-style=\"scrollHeight\">\n" +
+          /*  "          <div class=\"scrollable\" ng-style=\"scrollHeight\">\n" +*/
+            "        <div class=\"scrollable\" style=\"height: calc(100% - 3em - 30px)\">\n" +
             "            <table class=\"table table-bordered table-striped table-fixed\">\n" +
             "                <tr ng-repeat=\"event in selectedDate.events\" ng-if=\"selectedDate.events\">\n" +
             "                    <td ng-if=\"!event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{event.startTime|date: 'HH:mm'}}\n" +
