@@ -272,13 +272,17 @@ angular.module('ui.rCalendar', ['ui.rCalendar.tpls'])
                 };
 
                 //xm
-                //计算scroll的高度。
                 function getScrollHeight (){
-                    var height = window.screen.availHeight;
-                    height = height-43-42-261-40;
-                    scope.scrollHeight = {height:height+'px'};
+                    if(ionic.Platform.isAndroid()){
+                        scope.scrollHeight = {"height":"calc(100% - 3em - 30px)"};
+                    } else if(ionic.Platform.isIOS()){
+                        var height = window.screen.availHeight;
+                        height = height-43-42-261-40;
+                        scope.scrollHeight = {height:height+'px'};
+                    }
                 }
                 getScrollHeight();
+
 
 
                 function getDates(startDate, n) {
@@ -1147,8 +1151,8 @@ angular.module("template/rcalendar/month.html", []).run(["$templateCache", funct
             "    <div ng-if=\"showEventDetail\" class=\"event-detail-container\">\n" +
                 /*modify xm*/
                 /*"        <div class=\"scrollable\" style=\"height: 170px\">\n" +*/
-          /*  "          <div class=\"scrollable\" ng-style=\"scrollHeight\">\n" +*/
-            "        <div class=\"scrollable\" style=\"height: calc(100% - 3em - 30px)\">\n" +
+            "          <div class=\"scrollable\" ng-style=\"scrollHeight\">\n" +
+            /*"        <div class=\"scrollable\" style=\"height: calc(100% - 3em - 30px)\">\n" +*/
             "            <table class=\"table table-bordered table-striped table-fixed\">\n" +
             "                <tr ng-repeat=\"event in selectedDate.events\" ng-if=\"selectedDate.events\">\n" +
             "                    <td ng-if=\"!event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{event.startTime|date: 'HH:mm'}}\n" +
